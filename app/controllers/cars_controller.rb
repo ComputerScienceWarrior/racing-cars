@@ -1,6 +1,6 @@
 class CarsController < ApplicationController
     def index
-
+        @cars = Car.all
     end
 
     def show
@@ -8,23 +8,34 @@ class CarsController < ApplicationController
     end
 
     def new
-
+        @car = Car.new
     end
 
     def create
-
+        car = Car.new(car_params)
+        if car.save
+            redirect_to car_path car
+        else
+            render :new
+        end
     end
 
     def edit
-
+        @car = Car.find(params[:id])
     end
 
     def update
-        
+        @car = Car.update(car_params)
+
+        if @car.save
+            redirect_to car_path @car
+        else
+            render :edit
+        end
     end
 
     def destroy
-
+        # logic for deleting a car
     end
 
     private
