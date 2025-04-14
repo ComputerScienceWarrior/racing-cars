@@ -12,11 +12,12 @@ class CreateCars < ActiveRecord::Migration[7.1]
       t.integer :draws
       t.string :rank
       t.string :img_url
-      t.references :user
+      t.string :season_pts
+      t.string :total_pts
+  
+      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end
-
-    add_index :cars, :user_id
   end
 end
