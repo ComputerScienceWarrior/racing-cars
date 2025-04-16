@@ -1,0 +1,2 @@
+class CarSignupsController < ApplicationController
+end
