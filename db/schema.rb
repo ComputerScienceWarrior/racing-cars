@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2) do
+ActiveRecord::Schema[7.1].define(version: 2025_05_06_230909) do
+  create_table "car_signups", force: :cascade do |t|
+    t.string "signed_up"
+    t.integer "car_id", null: false
+    t.integer "tournament_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["car_id"], name: "index_car_signups_on_car_id"
+    t.index ["tournament_id"], name: "index_car_signups_on_tournament_id"
+  end
+
   create_table "cars", force: :cascade do |t|
     t.string "name"
     t.string "nickname"
@@ -31,6 +41,20 @@ ActiveRecord::Schema[7.1].define(version: 2) do
     t.index ["user_id"], name: "index_cars_on_user_id"
   end
 
+  create_table "pages", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tournaments", force: :cascade do |t|
+    t.string "name"
+    t.integer "size"
+    t.string "tournament_type"
+    t.string "season"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
@@ -40,5 +64,7 @@ ActiveRecord::Schema[7.1].define(version: 2) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "car_signups", "cars"
+  add_foreign_key "car_signups", "tournaments"
   add_foreign_key "cars", "users"
 end
