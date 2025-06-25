@@ -1,10 +1,11 @@
 class CarsController < ApplicationController
+    before_action :find_car, only: [:show, :edit, :update, :destroy]
+
     def index
         @cars = Car.all
     end
 
     def show
-        @car = Car.find(params[:id])
     end
 
     def new
@@ -21,7 +22,6 @@ class CarsController < ApplicationController
     end
 
     def edit
-        @car = Car.find(params[:id])
     end
 
     def update
@@ -43,5 +43,9 @@ class CarsController < ApplicationController
     def car_params
         params.require(:car).permit(:name, :nickname, :tournament_match_wins, :tournament_match_losses, :championship_wins,
                                     :championship_losses, :wins, :losses, :draws, :rank, :img_url)
+    end
+
+    def find_car
+        @car = Car.find(params[:id])
     end
 end
