@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+
+ .navigation{
+    background-color: aqua;
+    display: flex;
+    justify-content: space-evenly;
+ }
+
+ .navItems{
+    list-style-type: none;
+ }
