@@ -1,21 +1,25 @@
-<h1>User Profile</h1>
+<% if current_user == @user.id %>
 
-<p>
-  <strong>First Name:</strong>
-  <%= @user.first_name %>
-</p>
+  <h1>User Profile</h1>
 
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
+  <p>
+    <strong>First Name:</strong>
+    <%= @user.first_name %>
+  </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+  <p>
+    <strong>Username:</strong>
+    <%= @user.username %>
+  </p>
 
-<hr>
+  <p>
+    <strong>Email:</strong>
+    <%= @user.email %>
+  </p>
 
-<%= link_to "Edit Profile", edit_user_path(@user) %> |
-<%= link_to "Back to All Users", users_path %>
+  <hr>
+
+  <%= link_to "Edit Profile", edit_user_path(@user) %> |
+  <%= link_to "Back to All Users", users_path %>
+
+<% end %>
