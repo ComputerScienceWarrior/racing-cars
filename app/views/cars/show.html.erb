@@ -1,0 +1,19 @@
+<h1><%= @car.name %> (<%= @car.nickname %>)</h1>
+
+<% if @car.img_url.present? %>
+  <img src="<%= @car.img_url %>" alt="<%= @car.name %>" style="max-width: 300px;">
+<% end %>
+
+<ul>
+  <li><strong>Tournament Match Wins:</strong> <%= @car.tournament_match_wins %></li>
+  <li><strong>Tournament Match Losses:</strong> <%= @car.tournament_match_losses %></li>
+  <li><strong>Championship Wins:</strong> <%= @car.championship_wins %></li>
+  <li><strong>Championship Losses:</strong> <%= @car.championship_losses %></li>
+  <li><strong>Wins:</strong> <%= @car.wins %></li>
+  <li><strong>Losses:</strong> <%= @car.losses %></li>
+  <li><strong>Draws:</strong> <%= @car.draws %></li>
+  <li><strong>Rank:</strong> <%= @car.rank %></li>
+</ul>
+
+<%= link_to 'Edit', edit_user_car_path(@user, @car) %> |
+<%= link_to 'Back to Cars', user_cars_path(@user) %>
