@@ -1,4 +1,5 @@
 class CarsController < ApplicationController
+    before_action :find_user, only: [:new, :create, :show, :index, :edit, :update, :destroy]
     before_action :find_car, only: [:show, :edit, :update, :destroy]
 
     def index
@@ -13,21 +14,20 @@ class CarsController < ApplicationController
     end
 
     def create
-        car = Car.new(car_params)
-        if car.save
-            redirect_to car_path car
+        @car = @user.cars.build(car_params)
+        if @car.save
+            redirect_to car_path @car
         else
             render :new
         end
     end
 
+    
     def edit
     end
 
     def update
-        @car = Car.update(car_params)
-
-        if @car.save
+        if @car.update(car_params)
             redirect_to car_path @car
         else
             render :edit
@@ -47,5 +47,9 @@ class CarsController < ApplicationController
 
     def find_car
         @car = Car.find(params[:id])
+    end
+
+    def find_user
+        @user = User.find(params[:user_id])
     end
 end
