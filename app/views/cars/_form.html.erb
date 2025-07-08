@@ -1,0 +1,60 @@
+<%= form_with model: [@user, @car], local: true do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :nickname %>
+    <%= form.text_field :nickname %>
+  </div>
+
+  <div>
+    <%= form.label :tournament_match_wins %>
+    <%= form.number_field :tournament_match_wins %>
+  </div>
+
+  <div>
+    <%= form.label :tournament_match_losses %>
+    <%= form.number_field :tournament_match_losses %>
+  </div>
+
+  <div>
+    <%= form.label :championship_wins %>
+    <%= form.number_field :championship_wins %>
+  </div>
+
+  <div>
+    <%= form.label :championship_losses %>
+    <%= form.number_field :championship_losses %>
+  </div>
+
+  <div>
+    <%= form.label :wins %>
+    <%= form.number_field :wins %>
+  </div>
+
+  <div>
+    <%= form.label :losses %>
+    <%= form.number_field :losses %>
+  </div>
+
+  <div>
+    <%= form.label :draws %>
+    <%= form.number_field :draws %>
+  </div>
+
+  <div>
+    <%= form.label :rank %>
+    <%= form.text_field :rank %>
+  </div>
+
+  <div>
+    <%= form.label :img_url %>
+    <%= form.text_field :img_url %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
