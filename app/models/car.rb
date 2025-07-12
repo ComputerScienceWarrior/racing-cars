@@ -1,4 +1,5 @@
 class Car < ApplicationRecord
     belongs_to :user
-    has_secure_password
+    has_many :car_signups
+    has_many :tournaments, through: :car_signups
 end
