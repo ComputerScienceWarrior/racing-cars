@@ -16,6 +16,10 @@
 </p>
 
 <p>
+  <%= link_to "#{@user.username}'s cars", user_cars_path(@user) %>
+</p>
+
+<p>
   <%= link_to "Add Car", new_user_car_path(@user) %>
 </p>
 
