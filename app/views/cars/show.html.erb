@@ -1,4 +1,9 @@
-<h1><%= @car.name %> (<%= @car.nickname %>)</h1>
+<h1>
+  <%= @car.name %> 
+    <% if @car.nickname.present? %>
+      (<%= @car.nickname %>)
+    <% end %>
+  </h1>
 
 <% if @car.img_url.present? %>
   <img src="<%= @car.img_url %>" alt="<%= @car.name %>" style="max-width: 300px;">
