@@ -1,0 +1,3 @@
+<% @cars.each do |car| %>
+    <%= link_to car.name, user_car_path(@user, car) %><br/>
+<% end %>
