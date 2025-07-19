@@ -1,5 +1,5 @@
 class CarsController < ApplicationController
-    before_action :find_user, only: [:new, :create, :show, :index, :edit, :update, :destroy]
+    before_action :find_user, only: [:index, :new, :create, :show, :index, :edit, :update, :destroy]
     before_action :find_car, only: [:show, :edit, :update, :destroy]
 
     def index
@@ -28,7 +28,7 @@ class CarsController < ApplicationController
 
     def update
         if @car.update(car_params)
-            redirect_to car_path @car
+            redirect_to user_car_path(@user, @car)
         else
             render :edit
         end
